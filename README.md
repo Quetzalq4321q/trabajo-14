@@ -2,6 +2,15 @@
 
 Repositorio local del modelo básico de base de datos del local Red Pepper.
 
+## Datos académicos
+
+- **Universidad:** La Salle
+- **Curso:** Base de Datos I
+- **Carrera:** Ingeniería de Software
+- **Semestre:** quinto
+- **Docente:** Ricardo Fabrizio Calienes Rodriguez
+- **Autores:** Renato Patricio Delgado Huerta; Armando Manuel Enriquez Eguiluz; Victor Gabriel Lupinta Flores; Albana Elizabeth Vasquez Paredes; Gabriel Andre Pajuelo Aranibar.
+
 ## Contenido
 
 - `sql/01_crear_base.sql`: crea una base de datos nueva (nombre provisional: `red_pepper_db`).
@@ -10,6 +19,7 @@ Repositorio local del modelo básico de base de datos del local Red Pepper.
 - `sql/04_insertar_pedidos.sql`: inserta 20 pedidos ficticios.
 - `documentacion/trabajo_14_red_pepper.pdf`: informe con diagrama entidad-relación.
 - `documentacion/trabajo_14_red_pepper.tex`: fuente LaTeX editable del informe.
+- `documentacion/logo_lasalle_negro.png`: logo proporcionado para la portada.
 - `documentacion/red_pepper_datos_completos_con_nombres.xlsx`: los datos de las tres tablas, cada una en su hoja.
 - `documentacion/red_pepper_30_platos.xlsx`: lista independiente de platos.
 - [`GUIA_DATAGRIP.md`](GUIA_DATAGRIP.md): pasos y comandos para mostrar toda la base.

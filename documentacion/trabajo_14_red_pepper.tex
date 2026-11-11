@@ -5,6 +5,7 @@
 \usepackage{geometry}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
 \usepackage{xcolor}
@@ -18,6 +19,39 @@
 \newcommand{\titulo}[1]{\vspace{7pt}{\large\bfseries\color{rojoVivo}#1}\par\vspace{2pt}}
 \newcommand{\encabezado}[1]{\textbf{\color{rojoVivo}#1}}
 \begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{0.6cm}
+\includegraphics[width=4.2cm]{logo_lasalle_negro.png}\par
+\vspace{0.5cm}
+{\Large\bfseries Universidad La Salle}\par
+\vspace{0.45cm}
+{\color{rojoVivo}\rule{0.72\textwidth}{1.4pt}}\par
+\vspace{0.65cm}
+{\Huge\bfseries\color{rojoVivo} TRABAJO 14}\par
+\vspace{0.25cm}
+{\Large\bfseries Base de datos de Red Pepper}\par
+\vspace{0.25cm}
+{\normalsize Identificación y representación de una base de datos}\par
+\vspace{0.7cm}
+{\bfseries Curso:} Base de Datos I\par
+{\bfseries Carrera:} Ingeniería de Software\par
+{\bfseries Semestre:} Quinto semestre\par
+\vspace{0.65cm}
+{\large\bfseries\color{rojoVivo} Autores}\par
+\vspace{0.15cm}
+Renato Patricio Delgado Huerta\par
+Armando Manuel Enriquez Eguiluz\par
+Victor Gabriel Lupinta Flores\par
+Albana Elizabeth Vasquez Paredes\par
+Gabriel Andre Pajuelo Aranibar\par
+\vspace{0.55cm}
+{\bfseries Docente:} Ricardo Fabrizio Calienes Rodriguez\par
+\vfill
+2026\par
+\end{titlepage}
+\hypersetup{pageanchor=true}
 \begin{center}
 {\LARGE\bfseries\color{rojoVivo} TRABAJO 14}\par
 \vspace{3pt}
@@ -40,19 +74,19 @@ pedidos & Fecha, cliente, plato y cantidad & 20\\\hline
 \end{tabularx}
 
 \titulo{4. Estructura de las tablas}
-\begin{tabularx}{\textwidth}{|>{\bfseries}p{2.5cm}|X|p{2.7cm}|p{2.9cm}|}\hline
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{2.2cm}|X|p{3.3cm}|p{2.6cm}|}\hline
 \encabezado{Tabla} & \encabezado{Campo} & \encabezado{Tipo} & \encabezado{Clave}\\\hline
-clientes & id\_cliente & INTEGER & PK\\\hline
-clientes & nombre & TEXT & ---\\\hline
-platos & id\_plato & INTEGER & PK\\\hline
-platos & nombre & TEXT & ---\\\hline
-platos & categoria & TEXT & ---\\\hline
-platos & precio & REAL & ---\\\hline
-pedidos & id\_pedido & INTEGER & PK\\\hline
-pedidos & fecha & TEXT & ---\\\hline
-pedidos & id\_cliente & INTEGER & FK a clientes\\\hline
-pedidos & id\_plato & INTEGER & FK a platos\\\hline
-pedidos & cantidad & INTEGER & ---\\\hline
+clientes & id\_cliente & INT & PK\\\hline
+clientes & nombre & NVARCHAR(100) & ---\\\hline
+platos & id\_plato & INT & PK\\\hline
+platos & nombre & NVARCHAR(120) & ---\\\hline
+platos & categoria & NVARCHAR(40) & ---\\\hline
+platos & precio & DECIMAL(10,2) & ---\\\hline
+pedidos & id\_pedido & INT & PK\\\hline
+pedidos & fecha & DATE & ---\\\hline
+pedidos & id\_cliente & INT & FK a clientes\\\hline
+pedidos & id\_plato & INT & FK a platos\\\hline
+pedidos & cantidad & INT & ---\\\hline
 \end{tabularx}
 
 \newpage
