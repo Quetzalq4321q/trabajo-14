@@ -4,9 +4,9 @@ Repositorio local del modelo básico de base de datos del local Red Pepper.
 
 ## Contenido
 
-- `sql/01_crear_tablas.sql`: crea las tablas `clientes`, `platos` y `pedidos`, con claves primarias y foráneas.
-- `sql/02_insertar_clientes.sql`: inserta 20 clientes ficticios.
-- `sql/03_insertar_platos.sql`: inserta 30 platos de la carta.
+- `sql/01_crear_base.sql`: crea una base de datos nueva (nombre provisional: `red_pepper_db`).
+- `sql/02_crear_tablas.sql`: crea las tablas `clientes`, `platos` y `pedidos`, con claves primarias y foráneas.
+- `sql/03_insertar_clientes_y_platos.sql`: inserta 20 clientes ficticios y 30 platos de la carta.
 - `sql/04_insertar_pedidos.sql`: inserta 20 pedidos ficticios.
 - `documentacion/trabajo_14_red_pepper.pdf`: informe con diagrama entidad-relación.
 - `documentacion/trabajo_14_red_pepper.tex`: fuente LaTeX editable del informe.
@@ -15,7 +15,13 @@ Repositorio local del modelo básico de base de datos del local Red Pepper.
 
 ## Motor y ejecución
 
-Los scripts usan **T-SQL para Azure SQL Database (motor SQL Server)**. Cree una base de datos vacía llamada `red_pepper_db` en Azure SQL Database y conéctese a ella desde el editor SQL. Ejecute los cuatro scripts **una vez y en orden numérico**. La base de datos se crea desde Azure; los scripts no usan `USE`, que no corresponde a este flujo de Azure SQL Database.
+Los scripts usan **T-SQL para Azure SQL Database (motor SQL Server)**. El nombre `red_pepper_db` es provisional: puede cambiar las dos apariciones de ese nombre en `01_crear_base.sql` antes de ejecutarlo. Crear una base en Azure requiere permiso `CREATE DATABASE` y puede generar cargos según la configuración de su cuenta.
+
+1. Conéctese a `master` y ejecute **solo** `01_crear_base.sql`.
+2. Abra una **nueva conexión** a la base que acaba de crear. Compruebe con `SELECT DB_NAME() AS base_actual;` que ya no está en `master`.
+3. En esa conexión, ejecute `02_crear_tablas.sql`, `03_insertar_clientes_y_platos.sql` y `04_insertar_pedidos.sql`, en ese orden.
+
+En Azure SQL Database no se cambia a otra base con `USE`; hay que conectarse directamente a ella. Los scripts pueden repetirse: conservan las tablas y filas existentes e insertan solo las que faltan. Los pasos 2–4 se detienen con un mensaje claro si siguen conectados a `master`. En SSMS puede elegir la base nueva en el selector de la ventana de consulta. En el portal de Azure, abra la base nueva y luego su **Query editor**.
 
 Para comprobar la carga:
 
