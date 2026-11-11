@@ -4,20 +4,21 @@
 \usepackage[spanish]{babel}
 \usepackage{geometry}
 \usepackage{array}
+\usepackage{colortbl}
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
 \usepackage{xcolor}
 \usepackage{hyperref}
-\definecolor{rojoVivo}{RGB}{220,0,0}
+\definecolor{azulDiscreto}{RGB}{31,76,132}
 \geometry{left=2cm,right=2cm,top=1.8cm,bottom=1.8cm}
-\hypersetup{colorlinks=true,urlcolor=rojoVivo,linkcolor=rojoVivo}
+\hypersetup{colorlinks=true,urlcolor=black,linkcolor=black}
 \pagestyle{plain}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
-\newcommand{\titulo}[1]{\vspace{7pt}{\large\bfseries\color{rojoVivo}#1}\par\vspace{2pt}}
-\newcommand{\encabezado}[1]{\textbf{\color{rojoVivo}#1}}
+\newcommand{\titulo}[1]{\vspace{7pt}{\large\bfseries\color{black}#1}\par\vspace{2pt}}
+\newcommand{\encabezado}[1]{\textbf{\color{azulDiscreto}#1}}
 \begin{document}
 \hypersetup{pageanchor=false}
 \begin{titlepage}
@@ -27,9 +28,9 @@
 \vspace{0.5cm}
 {\Large\bfseries Universidad La Salle}\par
 \vspace{0.45cm}
-{\color{rojoVivo}\rule{0.72\textwidth}{1.4pt}}\par
+{\color{black}\rule{0.72\textwidth}{1.4pt}}\par
 \vspace{0.65cm}
-{\Huge\bfseries\color{rojoVivo} TRABAJO 14}\par
+{\Huge\bfseries TRABAJO 14}\par
 \vspace{0.25cm}
 {\Large\bfseries Base de datos de Red Pepper}\par
 \vspace{0.25cm}
@@ -39,7 +40,7 @@
 {\bfseries Carrera:} Ingeniería de Software\par
 {\bfseries Semestre:} Quinto semestre\par
 \vspace{0.65cm}
-{\large\bfseries\color{rojoVivo} Autores}\par
+{\large\bfseries Autores}\par
 \vspace{0.15cm}
 Renato Patricio Delgado Huerta\par
 Armando Manuel Enriquez Eguiluz\par
@@ -53,7 +54,7 @@ Gabriel Andre Pajuelo Aranibar\par
 \end{titlepage}
 \hypersetup{pageanchor=true}
 \begin{center}
-{\LARGE\bfseries\color{rojoVivo} TRABAJO 14}\par
+{\LARGE\bfseries TRABAJO 14}\par
 \vspace{3pt}
 {\Large\bfseries Base de datos de Red Pepper}\par
 \end{center}
@@ -66,6 +67,7 @@ Red Pepper es un local de comida rápida ubicado en la Universidad La Salle, qui
 \textbf{red\_pepper\_db}. Se propone para registrar clientes, platos y pedidos de manera sencilla.
 
 \titulo{3. Tablas principales}
+\arrayrulecolor{azulDiscreto}
 \begin{tabularx}{\textwidth}{|>{\bfseries}p{2.5cm}|X|p{2.6cm}|}\hline
 \encabezado{Tabla} & \encabezado{Qué guarda} & \encabezado{Registros}\\\hline
 clientes & Identificación básica de cada cliente & 20\\\hline
@@ -74,6 +76,7 @@ pedidos & Fecha, cliente, plato y cantidad & 20\\\hline
 \end{tabularx}
 
 \titulo{4. Estructura de las tablas}
+\arrayrulecolor{azulDiscreto}
 \begin{tabularx}{\textwidth}{|>{\bfseries}p{2.2cm}|X|p{3.3cm}|p{2.6cm}|}\hline
 \encabezado{Tabla} & \encabezado{Campo} & \encabezado{Tipo} & \encabezado{Clave}\\\hline
 clientes & id\_cliente & INT & PK\\\hline
@@ -93,15 +96,15 @@ pedidos & cantidad & INT & ---\\\hline
 \titulo{5. Diagrama entidad--relación}
 \begin{center}
 \begin{tikzpicture}[
-  entidad/.style={draw=rojoVivo,very thick,rectangle,minimum width=4.25cm,align=left,inner sep=8pt},
-  rel/.style={draw=rojoVivo,very thick,-{Stealth[length=3mm]}},
+  entidad/.style={draw=azulDiscreto,very thick,rectangle,minimum width=4.25cm,align=left,inner sep=8pt},
+  rel/.style={draw=azulDiscreto,very thick,-{Stealth[length=3mm]}},
   every node/.style={font=\small}
 ]
-\node[entidad] (clientes) at (-4.7,0) {\textcolor{rojoVivo}{\bfseries CLIENTES}\\[3pt]
+\node[entidad] (clientes) at (-4.7,0) {\textcolor{azulDiscreto}{\bfseries CLIENTES}\\[3pt]
   id\_cliente (PK)\\nombre};
-\node[entidad] (platos) at (4.7,0) {\textcolor{rojoVivo}{\bfseries PLATOS}\\[3pt]
+\node[entidad] (platos) at (4.7,0) {\textcolor{azulDiscreto}{\bfseries PLATOS}\\[3pt]
   id\_plato (PK)\\nombre\\categoria\\precio};
-\node[entidad] (pedidos) at (0,-4.5) {\textcolor{rojoVivo}{\bfseries PEDIDOS}\\[3pt]
+\node[entidad] (pedidos) at (0,-4.5) {\textcolor{azulDiscreto}{\bfseries PEDIDOS}\\[3pt]
   id\_pedido (PK)\\fecha\\id\_cliente (FK)\\id\_plato (FK)\\cantidad};
 \draw[rel] (clientes.south) -- node[left,black]{\bfseries 1 a N} (pedidos.north west);
 \draw[rel] (platos.south) -- node[right,black]{\bfseries 1 a N} (pedidos.north east);
