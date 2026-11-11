@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{rojoVivo}{RGB}{220,0,0}
+\geometry{left=2cm,right=2cm,top=1.8cm,bottom=1.8cm}
+\hypersetup{colorlinks=true,urlcolor=rojoVivo,linkcolor=rojoVivo}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\titulo}[1]{\vspace{7pt}{\large\bfseries\color{rojoVivo}#1}\par\vspace{2pt}}
+\newcommand{\encabezado}[1]{\textbf{\color{rojoVivo}#1}}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries\color{rojoVivo} TRABAJO 14}\par
+\vspace{3pt}
+{\Large\bfseries Base de datos de Red Pepper}\par
+\end{center}
+\vspace{4pt}
+
+\titulo{1. Descripción de la entidad}
+Red Pepper es un local de comida rápida ubicado en la Universidad La Salle, quinto piso. Vende sánguches, empanadas, salchipapas, platos preparados, bandejas para compartir y hamburguesas. Su carta indica atención de lunes a viernes, de 9:00 a.~m. a 5:00 p.~m., y pedidos para recojo.
+
+\titulo{2. Nombre de la base de datos}
+\textbf{red\_pepper\_db}. Se propone para registrar clientes, platos y pedidos de manera sencilla.
+
+\titulo{3. Tablas principales}
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{2.5cm}|X|p{2.6cm}|}\hline
+\encabezado{Tabla} & \encabezado{Qué guarda} & \encabezado{Registros}\\\hline
+clientes & Identificación básica de cada cliente & 20\\\hline
+platos & Nombre, categoría y precio de cada plato & 30\\\hline
+pedidos & Fecha, cliente, plato y cantidad & 20\\\hline
+\end{tabularx}
+
+\titulo{4. Estructura de las tablas}
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{2.5cm}|X|p{2.7cm}|p{2.9cm}|}\hline
+\encabezado{Tabla} & \encabezado{Campo} & \encabezado{Tipo} & \encabezado{Clave}\\\hline
+clientes & id\_cliente & INTEGER & PK\\\hline
+clientes & nombre & TEXT & ---\\\hline
+platos & id\_plato & INTEGER & PK\\\hline
+platos & nombre & TEXT & ---\\\hline
+platos & categoria & TEXT & ---\\\hline
+platos & precio & REAL & ---\\\hline
+pedidos & id\_pedido & INTEGER & PK\\\hline
+pedidos & fecha & TEXT & ---\\\hline
+pedidos & id\_cliente & INTEGER & FK a clientes\\\hline
+pedidos & id\_plato & INTEGER & FK a platos\\\hline
+pedidos & cantidad & INTEGER & ---\\\hline
+\end{tabularx}
+
+\newpage
+\titulo{5. Diagrama entidad--relación}
+\begin{center}
+\begin{tikzpicture}[
+  entidad/.style={draw=rojoVivo,very thick,rectangle,minimum width=4.25cm,align=left,inner sep=8pt},
+  rel/.style={draw=rojoVivo,very thick,-{Stealth[length=3mm]}},
+  every node/.style={font=\small}
+]
+\node[entidad] (clientes) at (-4.7,0) {\textcolor{rojoVivo}{\bfseries CLIENTES}\\[3pt]
+  id\_cliente (PK)\\nombre};
+\node[entidad] (platos) at (4.7,0) {\textcolor{rojoVivo}{\bfseries PLATOS}\\[3pt]
+  id\_plato (PK)\\nombre\\categoria\\precio};
+\node[entidad] (pedidos) at (0,-4.5) {\textcolor{rojoVivo}{\bfseries PEDIDOS}\\[3pt]
+  id\_pedido (PK)\\fecha\\id\_cliente (FK)\\id\_plato (FK)\\cantidad};
+\draw[rel] (clientes.south) -- node[left,black]{\bfseries 1 a N} (pedidos.north west);
+\draw[rel] (platos.south) -- node[right,black]{\bfseries 1 a N} (pedidos.north east);
+\end{tikzpicture}
+\end{center}
+\vspace{4pt}
+Un \textbf{cliente} puede tener varios pedidos. Un \textbf{plato} puede aparecer en varios pedidos. Cada \textbf{pedido} corresponde a un cliente y a un plato. En este modelo básico, cada pedido contiene un solo plato.
+
+\titulo{6. Registro de datos}
+El archivo SQL adjunto incluye \textbf{20 clientes, 30 platos y 20 pedidos}. El Excel adjunto presenta los 30 platos con su categoría y precio. Los clientes y pedidos son datos simulados para el ejercicio.
+
+La carta reúne las empanadas por sabores y permite escoger res o pollo en algunas hamburguesas. Estas opciones se registraron por separado para completar los 30 platos sin agregar productos ajenos a la carta.
+
+\titulo{Fuente}
+Carta digital de Red Pepper, consultada el 10/11/2026: \url{https://nexlabs.net.pe/Red-Pepper-menu/}
+\end{document}

@@ -1,0 +1,23 @@
+-- Trabajo 14: 20 clientes ficticios.
+BEGIN TRANSACTION;
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (1, N'Ana Torres');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (2, N'Luis Mendoza');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (3, N'Carla Rojas');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (4, N'Diego Flores');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (5, N'Sofía Vargas');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (6, N'Miguel Paredes');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (7, N'Valeria Castillo');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (8, N'José Salazar');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (9, N'Lucía Herrera');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (10, N'Andrés Medina');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (11, N'Daniela Quispe');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (12, N'Marco Gutiérrez');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (13, N'Camila Navarro');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (14, N'Ricardo Chávez');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (15, N'Gabriela León');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (16, N'Fernando Silva');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (17, N'Paula Romero');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (18, N'Renato Aguilar');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (19, N'Elena Campos');
+INSERT INTO dbo.clientes (id_cliente, nombre) VALUES (20, N'Bruno Morales');
+COMMIT TRANSACTION;
