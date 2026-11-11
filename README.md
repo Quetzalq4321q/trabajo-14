@@ -12,6 +12,8 @@ Repositorio local del modelo básico de base de datos del local Red Pepper.
 - `documentacion/trabajo_14_red_pepper.tex`: fuente LaTeX editable del informe.
 - `documentacion/red_pepper_datos_completos_con_nombres.xlsx`: los datos de las tres tablas, cada una en su hoja.
 - `documentacion/red_pepper_30_platos.xlsx`: lista independiente de platos.
+- [`GUIA_DATAGRIP.md`](GUIA_DATAGRIP.md): pasos y comandos para mostrar toda la base.
+- [`consultas/consultas_red_pepper.sql`](consultas/consultas_red_pepper.sql): consultas de solo lectura listas para usar.
 
 ## Motor y ejecución
 
